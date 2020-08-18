@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
+
+import React, { memo } from 'react'
+import { Provider } from 'react-redux'
 import './App.css';
+import store from './Redux/store'
+import Page1 from "./Components/page1";
 
-function App() {
+const App = memo((props) => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Provider store={store}>
+    <div className="App" >
+      <Page1 />
     </div>
-  );
-}
+    </Provider>
+  )
+})
 
-export default App;
+
+export default App
+
+
