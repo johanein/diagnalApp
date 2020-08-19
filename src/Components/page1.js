@@ -28,7 +28,7 @@ const Page1 = memo(function Page1(props) {
   
     useEffect(() => {
       dispatch(jsonPlaceholderGetReq())
-    }, [])
+    }, [dispatch])
 
     return (
       <div className={classes.root}>
