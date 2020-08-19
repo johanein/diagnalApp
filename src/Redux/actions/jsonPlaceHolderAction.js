@@ -18,7 +18,6 @@ return response
  const jsonPlaceholderGetReq = () =>{
     return async (dispatch)=>{
         const payload =  await netWorkFunction({url:'API/CONTENTLISTINGPAGE-PAGE1.json'})
-        console.log('payload', payload)
         const {data} = payload
         dispatch(jsonPlaceholderActionCreator(data))
     }  
