@@ -3,7 +3,6 @@ import React, { memo,lazy, Suspense } from 'react'
 import { Provider } from 'react-redux'
 import './App.css';
 import store from './Redux/store'
-// import Page1 from "./Components/page1";
 const Page1 = lazy(()=>import('./Components/page1'));
 
 const App = memo((props) => {

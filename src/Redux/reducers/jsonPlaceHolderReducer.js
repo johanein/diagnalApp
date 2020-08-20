@@ -7,16 +7,17 @@ import {
     jsonAxiosGetResult:[],
     pageNoReceived:0,
     nextPageTocall:1,
-    contents:[]
+    contents:[],
+    initContents:[]
   }
   
   export default function jsonPlaceHolderReducer(state = initialState,action) {
     const {type,payload} = action || {}
     switch (type) {
         case SAVE_JSON_PLACEHOLDER:{
-          let {contents} = state
+          const {initContents} = state
           let {page:{'page-num-requested':pageNoReceived, 'content-items':{content=[]}={}}={}}= payload
-           contents = [...contents,...content]
+           const contents = [...initContents,...content]
           pageNoReceived = parseInt(pageNoReceived)
           const nextPageTocall = pageNoReceived + 1
 
@@ -25,9 +26,22 @@ import {
           jsonAxiosGetResult: payload,
           pageNoReceived,
           nextPageTocall,
-          contents
+          contents,
+          initContents: contents
         }
       }
+      case 'SEARCH_CONTENTS' :{
+        let {contents} = state
+        const {initContents} = state
+        contents = initContents
+        if(payload)contents = contents.filter(({name})=>name.includes(payload))
+        
+return {
+  ...state,
+  contents
+}
+      }
+
         case CLEAR_JSON_PLACEHOLDER:{
         return {
           ...state,

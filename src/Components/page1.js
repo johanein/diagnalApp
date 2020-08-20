@@ -2,20 +2,22 @@ import React, { memo, useEffect , useRef} from 'react'
 import { connect } from 'react-redux'
 import {Grid, makeStyles} from '@material-ui/core';
 import { jsonPlaceholderGetReq } from '../Redux/actions/jsonPlaceHolderAction'
+import AppBarComp from './appBar'
 
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     flexWrap: 'wrap',
-    justifyContent: 'space-around',
+    // justifyContent: 'space-around',
     alignItems:'center',
     overflow: 'auto',
-    // backgroundColor: theme.palette.background.paper,
+    backgroundColor: 'black',
   },
   gridList: {
-    width: '50%',
-    height: '1000%',
+    // width: '50%',
+    height: '100%',
+    backgroundColor: 'black',
   }
 }));
 
@@ -46,12 +48,14 @@ const Page1 = memo((props)=> {
       <div
         className={classes.root}
         >
+          <AppBarComp />
       <div 
         className={classes.root}
       >
         <Grid 
         container 
         direction="row"
+        justify="space-between"
         alignItems="center"
         className={classes.gridList}
         >
@@ -68,8 +72,7 @@ const Page1 = memo((props)=> {
       </div>
       <div
       ref={hookRef}
-      >
-        
+      >        
         </div>
         </div>
     );
