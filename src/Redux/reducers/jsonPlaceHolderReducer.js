@@ -19,7 +19,6 @@ import {
            contents = [...contents,...content]
           pageNoReceived = parseInt(pageNoReceived)
           const nextPageTocall = pageNoReceived + 1
-      console.log('nextPageTocall : ', nextPageTocall)
 
         return {
           ...state,

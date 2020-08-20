@@ -30,10 +30,10 @@ const Page1 = memo((props)=> {
       rootMargin: '0px',
       threshold: 0.1
     }
-    console.log('didmount')
     callPages({pageNo:nextPageTocall})
     const observer = new IntersectionObserver(handleObserver,options)
     observer.observe(hookRef.current)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []) 
   
   const handleObserver = () => {
@@ -69,14 +69,13 @@ const Page1 = memo((props)=> {
       <div
       ref={hookRef}
       >
-        ...loading
+        
         </div>
         </div>
     );
 })
 
 function mapStateToProps(state,ownprops) {
-  console.log('state.jsonPlaceHolderReducer.nextPageTocall : ', state.jsonPlaceHolderReducer.nextPageTocall)
   return {
     nextPageTocall: state.jsonPlaceHolderReducer.nextPageTocall,
     contents:state.jsonPlaceHolderReducer.contents
