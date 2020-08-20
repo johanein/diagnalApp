@@ -2,7 +2,6 @@ import React, { memo, useEffect , useRef} from 'react'
 import { connect } from 'react-redux'
 import {Grid, makeStyles} from '@material-ui/core';
 import { jsonPlaceholderGetReq } from '../Redux/actions/jsonPlaceHolderAction'
-import AppBarComp from './appBar'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -13,6 +12,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems:'center',
     overflow: 'auto',
     backgroundColor: 'black',
+    marginTop:'36px'
   },
   gridList: {
     // width: '50%',
@@ -48,7 +48,6 @@ const Page1 = memo((props)=> {
       <div
         className={classes.root}
         >
-          <AppBarComp />
       <div 
         className={classes.root}
       >
@@ -63,6 +62,7 @@ const Page1 = memo((props)=> {
           <Grid key={`${index}_${tile.name}`}
           item
           xs={4}
+          style={{marginBottom:'90px'}}
           >
             <img src={`${process.env.PUBLIC_URL}/Slices/${tile['poster-image']}`} alt={tile.name} />
           <h3>{tile.name}</h3>
