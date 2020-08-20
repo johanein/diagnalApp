@@ -15,16 +15,13 @@ const netWorkFunction = async ({url}) => {
 return response
 }
 
- const jsonPlaceholderGetReq = () =>{
+ const jsonPlaceholderGetReq = ({pageNo}) =>{
     return async (dispatch)=>{
-        const payload =  await netWorkFunction({url:'API/CONTENTLISTINGPAGE-PAGE1.json'})
+        const payload =  await netWorkFunction({url:`API/CONTENTLISTINGPAGE-PAGE${pageNo}.json`})
         const {data} = payload
         dispatch(jsonPlaceholderActionCreator(data))
     }  
 }
-
-
-
 
 export {
     jsonPlaceholderGetReq,

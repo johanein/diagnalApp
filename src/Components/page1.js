@@ -1,9 +1,8 @@
-import React, { memo, useEffect } from 'react'
+import React, { memo, useEffect , useRef} from 'react'
+import { connect } from 'react-redux'
+import {Grid, makeStyles} from '@material-ui/core';
 import { jsonPlaceholderGetReq } from '../Redux/actions/jsonPlaceHolderAction'
-import { makeStyles } from '@material-ui/core/styles';
-import {Grid} from '@material-ui/core';
 
-import {  useSelector, useDispatch } from 'react-redux'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -15,33 +14,48 @@ const useStyles = makeStyles((theme) => ({
     // backgroundColor: theme.palette.background.paper,
   },
   gridList: {
-    width: '60%',
-    height: '80%',
+    width: '50%',
+    height: '1000%',
   }
 }));
 
-const Page1 = memo(function Page1(props) {
+const Page1 = memo((props)=> {
+  const hookRef = useRef()
   const classes = useStyles();
-    const dispatch = useDispatch()
-    const jsonAxiosGetResult = useSelector(state => state.jsonPlaceHolderReducer.jsonAxiosGetResult) 
-    const {page:{'content-items':{content=[]}={}}={}} = jsonAxiosGetResult
+  const {contents, nextPageTocall, callPages} = props
+
+  useEffect(() => {
+    let options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    }
+    console.log('didmount')
+    callPages({pageNo:nextPageTocall})
+    const observer = new IntersectionObserver(handleObserver,options)
+    observer.observe(hookRef.current)
+  }, []) 
   
-    useEffect(() => {
-      dispatch(jsonPlaceholderGetReq())
-    }, [dispatch])
+  const handleObserver = () => {
+    const {store} = window
+    const storeNextPage = store.getState().jsonPlaceHolderReducer.nextPageTocall
+    if(storeNextPage < 4) callPages({pageNo:storeNextPage})
+    }
 
     return (
-      <div className={classes.root}>
+      <div
+        className={classes.root}
+        >
+      <div 
+        className={classes.root}
+      >
         <Grid 
         container 
         direction="row"
-        // justify="center" 
         alignItems="center"
-        className={classes.gridList} 
-        // spacing={2}
-        // cols={3}
+        className={classes.gridList}
         >
-        {content.map((tile,index) => (
+        {contents.map((tile,index) => (
           <Grid key={`${index}_${tile.name}`}
           item
           xs={4}
@@ -52,9 +66,30 @@ const Page1 = memo(function Page1(props) {
         ))}
       </Grid>
       </div>
+      <div
+      ref={hookRef}
+      >
+        ...loading
+        </div>
+        </div>
     );
 })
 
+function mapStateToProps(state,ownprops) {
+  console.log('state.jsonPlaceHolderReducer.nextPageTocall : ', state.jsonPlaceHolderReducer.nextPageTocall)
+  return {
+    nextPageTocall: state.jsonPlaceHolderReducer.nextPageTocall,
+    contents:state.jsonPlaceHolderReducer.contents
+  }
+}
 
+function mapDispatchToProps(dispatch) {
+  return {
+    callPages: ({pageNo}) => dispatch(jsonPlaceholderGetReq({pageNo})),
+  }
+}
 
-export default Page1
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Page1)
