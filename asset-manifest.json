@@ -1,23 +1,27 @@
 {
   "files": {
-    "main.css": "/diagnalApp/static/css/main.5f361e03.chunk.css",
-    "main.js": "/diagnalApp/static/js/main.dec49740.chunk.js",
-    "main.js.map": "/diagnalApp/static/js/main.dec49740.chunk.js.map",
-    "runtime-main.js": "/diagnalApp/static/js/runtime-main.75f90173.js",
-    "runtime-main.js.map": "/diagnalApp/static/js/runtime-main.75f90173.js.map",
-    "static/js/2.77e86286.chunk.js": "/diagnalApp/static/js/2.77e86286.chunk.js",
-    "static/js/2.77e86286.chunk.js.map": "/diagnalApp/static/js/2.77e86286.chunk.js.map",
+    "main.css": "/diagnalApp/static/css/main.8ce3d5ab.chunk.css",
+    "main.js": "/diagnalApp/static/js/main.c173c598.chunk.js",
+    "main.js.map": "/diagnalApp/static/js/main.c173c598.chunk.js.map",
+    "runtime-main.js": "/diagnalApp/static/js/runtime-main.dccdad34.js",
+    "runtime-main.js.map": "/diagnalApp/static/js/runtime-main.dccdad34.js.map",
+    "static/js/2.bd4a99e9.chunk.js": "/diagnalApp/static/js/2.bd4a99e9.chunk.js",
+    "static/js/2.bd4a99e9.chunk.js.map": "/diagnalApp/static/js/2.bd4a99e9.chunk.js.map",
+    "static/js/3.60fda766.chunk.js": "/diagnalApp/static/js/3.60fda766.chunk.js",
+    "static/js/3.60fda766.chunk.js.map": "/diagnalApp/static/js/3.60fda766.chunk.js.map",
+    "static/js/4.ecefe212.chunk.js": "/diagnalApp/static/js/4.ecefe212.chunk.js",
+    "static/js/4.ecefe212.chunk.js.map": "/diagnalApp/static/js/4.ecefe212.chunk.js.map",
     "index.html": "/diagnalApp/index.html",
-    "precache-manifest.d1016b88da285c11ede879eb6d759631.js": "/diagnalApp/precache-manifest.d1016b88da285c11ede879eb6d759631.js",
+    "precache-manifest.729c6f8cb4f76164c69af8b17f0b80e3.js": "/diagnalApp/precache-manifest.729c6f8cb4f76164c69af8b17f0b80e3.js",
     "service-worker.js": "/diagnalApp/service-worker.js",
-    "static/css/main.5f361e03.chunk.css.map": "/diagnalApp/static/css/main.5f361e03.chunk.css.map",
-    "static/js/2.77e86286.chunk.js.LICENSE.txt": "/diagnalApp/static/js/2.77e86286.chunk.js.LICENSE.txt",
-    "static/media/logo.svg": "/diagnalApp/static/media/logo.5d5d9eef.svg"
+    "static/css/main.8ce3d5ab.chunk.css.map": "/diagnalApp/static/css/main.8ce3d5ab.chunk.css.map",
+    "static/js/2.bd4a99e9.chunk.js.LICENSE.txt": "/diagnalApp/static/js/2.bd4a99e9.chunk.js.LICENSE.txt",
+    "static/js/3.60fda766.chunk.js.LICENSE.txt": "/diagnalApp/static/js/3.60fda766.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.75f90173.js",
-    "static/js/2.77e86286.chunk.js",
-    "static/css/main.5f361e03.chunk.css",
-    "static/js/main.dec49740.chunk.js"
+    "static/js/runtime-main.dccdad34.js",
+    "static/js/3.60fda766.chunk.js",
+    "static/css/main.8ce3d5ab.chunk.css",
+    "static/js/main.c173c598.chunk.js"
   ]
 }
